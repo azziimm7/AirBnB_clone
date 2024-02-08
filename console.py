@@ -1,8 +1,23 @@
 #!/usr/bin/python3
 """
+Console Module: designed for AirBnB.
+using cmd module.
+contains HBNBCommand class that represents the CLI.
+
+Attributes:
+    - prompt (str)
+    - allclass (dict)
+Methods:
+    - emptyline()
+    - do_quit()
+    - do_EOF()
+    - do_create()
+    - do_show()
+    - do_destroy()
+    - do_all()
+    - do_update()
 """
 import cmd
-import sys
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
@@ -14,7 +29,14 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
-    """"""
+    """
+    CLI for AirBnB app
+
+    Attributes:
+        - prompt(str): command prompt display.
+        - allclass (dict): dictionary for classnames and their objects.
+    """
+
     prompt = "(hbnb) "
 
     allclass = {

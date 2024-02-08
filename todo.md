@@ -10,13 +10,13 @@
 	- `place.py`
 	- `review.py`
 * `console.py` - mandatory tasks
+* Documintation and pycodestyle check
 
 ## UNDER PROCESS:
-* `console.py` - advanced tasks
+* Unitests for `base_model.py` && `file_storage.py`
 
 # TO DO:
-* Documintation and pycodestyle check
-* Unitests for `base_model.py` && `file_storage.py`
+* `console.py` - advanced tasks
 * Unitests for `console.py`
 
 ### LATER ON:

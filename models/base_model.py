@@ -20,9 +20,17 @@ from datetime import datetime
 
 
 class BaseModel:
-    """ """
+    """Defines base class for all models"""
+
     def __init__(self, *args, **kwargs):
-        """ """
+        """
+        Initializes a new instance of class
+
+        Args:
+            - *args: Arguments list
+            - **kwargs: Keyword arguments
+        """
+
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
@@ -39,17 +47,30 @@ class BaseModel:
         models.storage.new(self)
 
     def __str__(self):
-        """ """
+        """
+        Returns a string representation
+
+        Return:
+        str: A string containing classname, id, and attributes
+        """
+
         classname = self.__class__.__name__
         return "[{}] ({}) {}".format(classname, self.id, self.__dict__)
 
     def save(self):
-        """ """
+        """Saves the instance with updated current time"""
+
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """ """
+        """
+        Converts the class instance to dict representation
+
+        Return:
+        dict: A dictionary containing all attributes and their values
+        """
+
         info = self.__dict__.copy()
         info["__class__"] = self.__class__.__name__
         info["created_at"] = self.created_at.isoformat()
