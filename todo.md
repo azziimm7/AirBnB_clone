@@ -9,12 +9,12 @@
 	- `amenity.py`
 	- `place.py`
 	- `review.py`
+* `console.py` - mandatory tasks
 
 ## UNDER PROCESS:
-* `console.py`
+* `console.py` - advanced tasks
 
 # TO DO:
-* Update other files according to new features
 * Documintation and pycodestyle check
 * Unitests for `base_model.py` && `file_storage.py`
 * Unitests for `console.py`
