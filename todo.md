@@ -11,13 +11,22 @@
 	- `review.py`
 * `console.py` - mandatory tasks
 * Documintation and pycodestyle check
+* Unittests for base class `base_model.py`
 
 ## UNDER PROCESS:
-* Unitests for `base_model.py` && `file_storage.py`
+* Unittests for subclasses:
+        - `user.py`
+        - `state.py`
+        - `city.py`
+        - `amenity.py`
+        - `place.py`
+        - `review.py`
+* Unittests for engine `file_storage.py`
 
 # TO DO:
+[ADVANCED]
 * `console.py` - advanced tasks
-* Unitests for `console.py`
+* Unittests for `console.py`
 
 ### LATER ON:
 * Update README and AUTHORS
