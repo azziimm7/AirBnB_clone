@@ -13,12 +13,12 @@
 * Documintation and pycodestyle check
 * Unittests for base class `base_model.py`
 * Unittests for base class `user.py`
+* Unittests for base class `state.py`
 
 ## UNDER PROCESS:
-* Fix checker tasks: No. 5 8 9.
+* Fix checker - Debug for task No. 5
 
 * Unittests for subclasses:
-        - `state.py`
         - `city.py`
         - `amenity.py`
         - `place.py`
