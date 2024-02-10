@@ -18,8 +18,6 @@
 * Unittests for base class `place.py`
 * Unittests for base class `amenity.py`
 * Unittests for base class `review.py`
-
-## UNDER PROCESS:
 * Unittests for engine `file_storage.py`
 
 # TO DO:
