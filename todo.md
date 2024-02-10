@@ -16,16 +16,13 @@
 * Unittests for base class `state.py`
 * Unittests for base class `city.py`
 * Unittests for base class `place.py`
+* Unittests for base class `amenity.py`
+* Unittests for base class `review.py`
 
 ## UNDER PROCESS:
-* Unittests for subclasses:
-        - `amenity.py`
-        - `review.py`
-
 * Unittests for engine `file_storage.py`
 
 # TO DO:
-
 [ADVANCED]
 * `console.py` - advanced tasks
 * Unittests for `console.py`
