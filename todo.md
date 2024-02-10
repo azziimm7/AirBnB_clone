@@ -14,14 +14,12 @@
 * Unittests for base class `base_model.py`
 * Unittests for base class `user.py`
 * Unittests for base class `state.py`
+* Unittests for base class `city.py`
+* Unittests for base class `place.py`
 
 ## UNDER PROCESS:
-* Fix checker - Debug for task No. 5
-
 * Unittests for subclasses:
-        - `city.py`
         - `amenity.py`
-        - `place.py`
         - `review.py`
 
 * Unittests for engine `file_storage.py`
