@@ -44,7 +44,8 @@ class BaseModel:
                                 value, "%Y-%m-%dT%H:%M:%S.%f")
                     else:
                         self.__dict__[key] = value
-        models.storage.new(self)
+        else:
+            models.storage.new(self)
 
     def __str__(self):
         """
