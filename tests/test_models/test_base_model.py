@@ -12,6 +12,7 @@ It tests various aspects of the BaseModel class, including:
 """
 
 import unittest
+import models
 from models.base_model import BaseModel
 from datetime import datetime
 
@@ -21,6 +22,12 @@ class TestBaseModelInitialization(unittest.TestCase):
 
     def setUp(self):
         self.base_model = BaseModel()
+
+    def test_init_method(self):
+        self.assertIsInstance(self.base_model, BaseModel)
+        self.assertTrue(hasattr(self.base_model, 'id'))
+        self.assertTrue(hasattr(self.base_model, 'created_at'))
+        self.assertTrue(hasattr(self.base_model, 'updated_at'))
 
     def test_id_generation(self):
         self.assertIsNotNone(self.base_model.id)
@@ -46,6 +53,17 @@ class TestBaseModelMethods(unittest.TestCase):
             self.base_model.id, self.base_model.__dict__)
         self.assertEqual(str(self.base_model), str_rep)
 
+    def test_str_representation(self):
+        date = datetime.today()
+        date_rep = repr(date)
+        self.base_model.id = "12079912065"
+        self.base_model.created_at = self.base_model.updated_at = date
+        model_str = self.base_model.__str__()
+        self.assertIn("[BaseModel] (12079912065)", model_str)
+        self.assertIn("'id': '12079912065'", model_str)
+        self.assertIn("'created_at': " + date_rep, model_str)
+        self.assertIn("'updated_at': " + date_rep, model_str)
+
     def test_save_method(self):
         old_updated_at = self.base_model.updated_at
         self.base_model.save()
@@ -54,6 +72,16 @@ class TestBaseModelMethods(unittest.TestCase):
     def test_save_method_with_none(self):
         with self.assertRaises(TypeError):
             self.base_model.save(None)
+
+    def test_save_method_with_arg(self):
+        with self.assertRaises(TypeError):
+            self.base_model.save(None)
+
+    def test_save_method_updates_file(self):
+        self.base_model.save()
+        model_id = "BaseModel." + self.base_model.id
+        with open("file.json", "r") as f:
+            self.assertIn(model_id, f.read())
 
     def test_to_dict_method(self):
         obj_dict = self.base_model.to_dict()
@@ -84,6 +112,10 @@ class TestBaseModelInstances(unittest.TestCase):
         mymodel = BaseModel(None)
         self.assertNotIn(None, mymodel.__dict__.values())
 
+    def test_with_None_kwargs(self):
+        with self.assertRaises(TypeError):
+            BaseModel(id=None, created_at=None, updated_at=None)
+
     def test_with_args_and_kwargs(self):
         date = datetime.today()
         date_iso = date.isoformat()
@@ -95,16 +127,18 @@ class TestBaseModelInstances(unittest.TestCase):
         self.assertEqual(mymodel.created_at, date)
         self.assertEqual(mymodel.updated_at, date)
 
-    def test_with_None_kwargs(self):
-        with self.assertRaises(TypeError):
-            BaseModel(id=None, created_at=None, updated_at=None)
-
     def test_serialization_and_deserialization(self):
         obj_dict = self.first_model.to_dict()
         for key, value in obj_dict.items():
             self.assertIsInstance(value, str)
         new_model = BaseModel(**obj_dict)
         self.assertEqual(new_model.to_dict(), obj_dict)
+
+    def test_to_dict_added_attributes(self):
+        self.second_model.name = "Inception"
+        self.second_model.number = 79
+        self.assertIn("name", self.second_model.to_dict())
+        self.assertIn("number", self.second_model.to_dict())
 
 
 class TestBaseModelEdgeCases(unittest.TestCase):
