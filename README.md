@@ -94,7 +94,7 @@ Once the console is running, you can interact with it by typing commands and pre
 
 ### Exiting the Console
 To exit the AirBnB Console, you can use one of the following methods:
-- Typing `quit` or `exit` and pressing Enter.
+- Typing `quit` and pressing Enter.
 - Pressing `Ctrl+D` (EOF) on your keyboard.
 
 ### Examples
