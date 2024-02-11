@@ -169,6 +169,12 @@ class TestFileStorageMethods(unittest.TestCase):
         with self.assertRaises(TypeError):
             models.storage.reload(None)
 
+    def test_reload_empty(self):
+        with open('file.json', 'w') as f:
+            pass
+        with self.assertRaises(ValueError):
+            models.storage.reload()
+
 
 class TestFileStorageInstances(unittest.TestCase):
     """Unittests for testing instances of the FileStorage class"""
