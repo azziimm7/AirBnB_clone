@@ -25,18 +25,16 @@ from models.review import Review
 class TestFileStorageInitialization(unittest.TestCase):
     """Test cases for initializing the FileStorage class"""
 
-    def setUp(self):
-        self.file_storage = FileStorage()
-
     def test_initialization(self):
-        self.file_path = self.file_storage._FileStorage__file_path
-        self.objects = self.file_storage._FileStorage__objects
-        self.allclass = self.file_storage._FileStorage__allclass
+        file_storage = FileStorage()
+        file_path = file_storage._FileStorage__file_path
+        objects = file_storage._FileStorage__objects
+        allclass = file_storage._FileStorage__allclass
 
-        self.assertEqual(self.file_path, "file.json")
-        self.assertEqual(self.objects, {})
+        self.assertEqual(file_path, "file.json")
+        self.assertEqual(objects, {})
         self.assertEqual(
-            self.allclass,
+            allclass,
             {
                 "BaseModel": BaseModel,
                 "User": User,
@@ -49,16 +47,18 @@ class TestFileStorageInitialization(unittest.TestCase):
         )
 
     def test_file_path_attribute(self):
-        self.file_path = self.file_storage._FileStorage__file_path
+        file_storage = FileStorage()
+        file_path = file_storage._FileStorage__file_path
 
-        self.assertIsNotNone(self.file_path)
-        self.assertIsInstance(self.file_path, str)
+        self.assertIsNotNone(file_path)
+        self.assertIsInstance(file_path, str)
 
     def test_objects_list(self):
-        self.objects = self.file_storage._FileStorage__objects
+        file_storage = FileStorage()
+        objects = file_storage._FileStorage__objects
 
-        self.assertIsNotNone(self.objects)
-        self.assertIsInstance(self.objects, dict)
+        self.assertIsNotNone(objects)
+        self.assertIsInstance(objects, dict)
 
     def test_storage_initializes(self):
         self.assertEqual(type(models.storage), FileStorage)
