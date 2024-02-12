@@ -27,11 +27,12 @@ class TestFileStorageInitialization(unittest.TestCase):
 
     def setUp(self):
         self.file_storage = FileStorage()
+
+    def test_initialization(self):
         self.file_path = self.file_storage._FileStorage__file_path
         self.objects = self.file_storage._FileStorage__objects
         self.allclass = self.file_storage._FileStorage__allclass
 
-    def test_initialization(self):
         self.assertEqual(self.file_path, "file.json")
         self.assertEqual(self.objects, {})
         self.assertEqual(
@@ -48,10 +49,14 @@ class TestFileStorageInitialization(unittest.TestCase):
         )
 
     def test_file_path_attribute(self):
+        self.file_path = self.file_storage._FileStorage__file_path
+
         self.assertIsNotNone(self.file_path)
         self.assertIsInstance(self.file_path, str)
 
     def test_objects_list(self):
+        self.objects = self.file_storage._FileStorage__objects
+
         self.assertIsNotNone(self.objects)
         self.assertIsInstance(self.objects, dict)
 
