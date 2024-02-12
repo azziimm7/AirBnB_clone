@@ -22,10 +22,6 @@
 * Update README and AUTHORS
 
 # TO DO:
-* fix task No 5 - three code requirments failed.
-CHECK (2 - 3 - 9)
-
-### LATER ON:
 [ADVANCED]
 * `console.py` - advanced tasks
 * Unittests for `console.py`

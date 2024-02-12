@@ -47,11 +47,13 @@ class TestFileStorageInitialization(unittest.TestCase):
             }
         )
 
-    def test_file_path_type(self):
-        self.assertEqual(str, type(self.file_path))
+    def test_file_path_attribute(self):
+        self.assertIsNotNone(self.file_path)
+        self.assertIsInstance(self.file_path, str)
 
-    def test_objects_type(self):
-        self.assertEqual(dict, type(self.objects))
+    def test_objects_list(self):
+        self.assertIsNotNone(self.objects)
+        self.assertIsInstance(self.objects, dict)
 
     def test_storage_initializes(self):
         self.assertEqual(type(models.storage), FileStorage)
